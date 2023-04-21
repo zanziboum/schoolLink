@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <h1>User Page</h1>
+
+    <div th:each="student : ${students}">
+        <fieldset>
+        <p th:text="${student.id}"></p>
+        <p th:text="${student.name}"></p>
+        </fieldset>
+    </div>
+
+
+</body>
+</html>
