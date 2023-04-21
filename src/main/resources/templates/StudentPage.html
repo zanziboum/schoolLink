@@ -5,12 +5,25 @@
     <title>User</title>
 </head>
 <body>
-    <h1>User Page</h1>
+    <h1>Student Page</h1>
+
+    <form method="post" action="/student">
+        <label for="name">Prénom:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="lname">Nom:</label>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <input type="submit" value="Ajouter">
+    </form>
 
     <div th:each="student : ${students}">
         <fieldset>
-        <p th:text="${student.id}"></p>
-        <p th:text="${student.name}"></p>
+            <div>
+                <p th:text="${student.name}" style="display: inline-block;"></p>
+                <p th:text="${student.lname}" style="display: inline-block;"></p>
+            </div>
+            <p th:text="${student.email}"></p>
         </fieldset>
     </div>
 
