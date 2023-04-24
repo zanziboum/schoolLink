@@ -13,10 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/student/google")
 public class SampleController {
     Map <String, Object> map = new HashMap<>();
-    @GetMapping("/user/information")
+    @GetMapping("/student/google")
     public Map<String, Object> currentUser (OAuth2AuthenticationToken oAuth2AuthenticationToken){
         map = oAuth2AuthenticationToken.getPrincipal().getAttributes();
         return map;
@@ -63,10 +63,10 @@ public class SampleController {
     @PostMapping("/student/google/login")
     public  String addStudentFromGoogle(String name, String lastName, String email, String googleKey){
         Student student = new Student();
-        student.setGoogleKey(googleKey);
+        student.setGoogleKey(getGoogleKey(map));
         student.setEmail(getEmail(map));
-        student.setName(getEmail(map));
-        student.setLname(getEmail(map));
+        student.setName(getFirstName(map));
+        student.setLname(getLastName(map));
         return "redirect:/student";
     }
 }
