@@ -12,6 +12,35 @@ import java.util.Map;
 public class SampleController {
     @GetMapping("/user/information")
     public Map<String, Object> currentUser (OAuth2AuthenticationToken oAuth2AuthenticationToken){
-        return oAuth2AuthenticationToken.getPrincipal().getAttributes();
+        Map map = oAuth2AuthenticationToken.getPrincipal().getAttributes();
+        return map;
+    }
+
+    public String getFirstName(Map map) {
+        String result = null;
+        for (int i = 0;i< map.size(); i++) {
+            if (map.containsKey("given_name")) {
+               result =  map.values().toString();
+            }
+        }
+        return result;
+    }
+    public String getLastName(Map map) {
+        String result = null;
+        for (int i = 0;i< map.size(); i++) {
+            if (map.containsKey("family_name")) {
+                result =  map.values().toString();
+            }
+        }
+        return result;
+    }
+    public String getEmail(Map map) {
+        String result = null;
+        for (int i = 0;i< map.size(); i++) {
+            if (map.containsKey("email")) {
+                result =  map.values().toString();
+            }
+        }
+        return result;
     }
 }
