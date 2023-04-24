@@ -1,8 +1,11 @@
 package fr.isep.schoolLink;
 
+import fr.isep.schoolLink.controller.StudentController;
+import fr.isep.schoolLink.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,5 +57,16 @@ public class SampleController {
             }
         }
         return result;
+    }
+    @Autowired
+    public StudentController studentController;
+    @PostMapping("/student/google/login")
+    public  String addStudentFromGoogle(String name, String lastName, String email, String googleKey){
+        Student student = new Student();
+        student.setGoogleKey(googleKey);
+        student.setEmail(getEmail(map));
+        student.setName(getEmail(map));
+        student.setLname(getEmail(map));
+        return "redirect:/student";
     }
 }

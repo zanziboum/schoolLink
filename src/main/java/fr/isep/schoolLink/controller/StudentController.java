@@ -42,15 +42,4 @@ public class StudentController {
         studentDAO.save(student);
         return "redirect:/student";
     }
-    @Autowired
-    public SampleController sampleController;
-    @PostMapping("/student/google/login")
-    public  String addStudentFromGoogle(String name, String lastName, String email, String googleKey){
-        Student student = new Student();
-        student.setGoogleKey(googleKey);
-        student.setEmail(sampleController.getEmail());
-        student.setName(sampleController.getEmail(sampleController.));
-        student.setLname(sampleController.getEmail(sampleController.));
-
-    }
 }
