@@ -9,10 +9,18 @@ public class Student {
 
     @Id
     private long id;
+    private String googleKey;
     private String name;
     private String lname;
     private String email;
     private String password;
+    public String getGoogleKey() {
+        return googleKey;
+    }
+
+    public void setGoogleKey(String googleKey) {
+        this.googleKey = googleKey;
+    }
 
     public String getPassword() {
         return password;

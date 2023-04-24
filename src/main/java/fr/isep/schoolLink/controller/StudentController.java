@@ -1,15 +1,19 @@
 package fr.isep.schoolLink.controller;
 
+import fr.isep.schoolLink.SampleController;
 import fr.isep.schoolLink.data.StudentDAO;
 import fr.isep.schoolLink.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class StudentController {
@@ -28,12 +32,25 @@ public class StudentController {
     @PostMapping("/student")
     public String addStudent(@RequestParam("name") String name,
                              @RequestParam("lname") String lname,
-                             @RequestParam("email") String email){
+                             @RequestParam("email") String email,
+                             @RequestParam("password") String password){
         Student student = new Student();
         student.setName(name);
         student.setLname(lname);
         student.setEmail(email);
+        student.setPassword(password);
         studentDAO.save(student);
         return "redirect:/student";
+    }
+    @Autowired
+    public SampleController sampleController;
+    @PostMapping("/student/google/login")
+    public  String addStudentFromGoogle(String name, String lastName, String email, String googleKey){
+        Student student = new Student();
+        student.setGoogleKey(googleKey);
+        student.setEmail(sampleController.getEmail());
+        student.setName(sampleController.getEmail(sampleController.));
+        student.setLname(sampleController.getEmail(sampleController.));
+
     }
 }
