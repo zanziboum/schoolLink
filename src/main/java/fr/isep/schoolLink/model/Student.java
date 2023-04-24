@@ -12,7 +12,15 @@ public class Student {
     private String name;
     private String lname;
     private String email;
+    private String password;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public long getId() {
         return id;
