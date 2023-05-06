@@ -3,7 +3,13 @@ package fr.isep.schoolLink.controller;
 import fr.isep.schoolLink.model.LoginRequest;
 import fr.isep.schoolLink.model.LoginResponse;
 import fr.isep.schoolLink.security.JwtIssuer;
+import fr.isep.schoolLink.security.UserPrincipal;
+import fr.isep.schoolLink.service.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,14 +21,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final JwtIssuer jwtIssuer;
+    private final AuthService authService;
 
     @PostMapping("/auth/login")
     public LoginResponse login(@RequestBody @Validated LoginRequest request){
-        var token = jwtIssuer.issue(1L, request.getEmail(), List.of("USER"));
-        return LoginResponse.builder()
-                .accesToken(token)
-                .build();
+        return authService.attemptLogin(request.getEmail(),request.getPassword());
     }
 
 }
