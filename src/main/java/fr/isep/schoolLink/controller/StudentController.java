@@ -1,7 +1,7 @@
 package fr.isep.schoolLink.controller;
 
-import fr.isep.schoolLink.data.StudentDAO;
-import fr.isep.schoolLink.model.Student;
+import fr.isep.schoolLink.repository.StudentRepository;
+import fr.isep.schoolLink.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +15,11 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    private StudentDAO studentDAO;
+    private StudentRepository studentRepository;
 
     @GetMapping("/student")
     public String showPage(Model model){
-        List<Student> students = studentDAO.findAll();
+        List<Student> students = studentRepository.findAll();
         model.addAttribute("students", students);
 
         return "StudentPage";
@@ -33,7 +33,7 @@ public class StudentController {
         student.setName(name);
         student.setLname(lname);
         student.setEmail(email);
-        studentDAO.save(student);
+        studentRepository.save(student);
         return "redirect:/student";
     }
 }

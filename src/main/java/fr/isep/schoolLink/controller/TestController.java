@@ -13,6 +13,11 @@ public class TestController {
 
     @GetMapping("/secured")
     public String secured(@AuthenticationPrincipal UserPrincipal principal){
-        return "Hello, you are logged \nAs " + principal.getEmail() + " " + principal.getUserId();
+        return "Hello, you are logged \nAs " + principal.getEmail() + " " + principal.getUserId() +"\nYou are a " + principal.getAuthorities().toString();
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "if you are here, it means you are an admin !";
     }
 }
