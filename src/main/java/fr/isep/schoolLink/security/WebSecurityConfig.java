@@ -38,6 +38,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/login").permitAll()
+                        //TODO: Solve role-based authorisation problem
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
