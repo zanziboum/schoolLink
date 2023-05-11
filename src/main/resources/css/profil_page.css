@@ -1,0 +1,99 @@
+#profile {
+    border: 2px dashed black;
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+#profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+#profile h1, #profile h2, #profile p {
+    margin: 0;
+    text-align: center;
+}
+#profile button {
+    margin-top: 20px;
+    align-self: flex-end;
+}
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+#popup form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+#popup label {
+    margin-bottom: 10px;
+    text-align: center;
+}
+#popup input {
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+#popup button {
+    align-self: flex-end;
+}
+.edit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #be8a62;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.edit-profile{
+    align-items: center;
+    background-color: white;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    left: 132px;
+    top: 0;
+    display: inline-block;
+    width: fit-content;
+}
+
+.profile-form {
+    width: 50%;
+    margin: auto;
+}
+.left-label {
+    text-align: left;
+}
+.bordered-section {
+    border: 1px dashed #ccc;
+    border-radius: 14px;
+    border-color: #be8a62;
+    padding: 10px;
+    margin-top: 10px;
+}
+.radio-options {
+    margin-left: 20px;
+}
+.option{
+    color: gray;
+}
