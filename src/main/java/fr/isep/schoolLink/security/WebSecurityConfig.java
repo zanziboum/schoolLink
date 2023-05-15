@@ -29,7 +29,7 @@ public class WebSecurityConfig {
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         http
-                .cors().disable()
+                .cors().and()//.disable()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -37,7 +37,7 @@ public class WebSecurityConfig {
                 .securityMatcher("/**")
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("api/auth/login").permitAll()
                         .requestMatchers("/login").permitAll()
                         //TODO: Solve role-based authorisation problem
                         .requestMatchers("/admin/**").hasRole("ADMIN")
