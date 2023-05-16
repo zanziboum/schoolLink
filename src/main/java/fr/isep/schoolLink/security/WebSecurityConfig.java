@@ -37,7 +37,8 @@ public class WebSecurityConfig {
                 .securityMatcher("/**")
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("api/auth/login").permitAll()
+                        .requestMatchers("api/auth/**").permitAll()
+                        .requestMatchers("api/search/**").permitAll()
                         .requestMatchers("/login").permitAll()
                         //TODO: Solve role-based authorisation problem
                         .requestMatchers("/admin/**").hasRole("ADMIN")
