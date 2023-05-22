@@ -14,6 +14,6 @@ public class UserInterestEntity {
     private UserEntity user;
 
     @ManyToOne
-    @JoinColumn(name = "formation_id")
-    private SchoolFormationEntity formation;
+    @JoinColumn(name = "subject_of_interest_id")
+    private SubjectOfInterestEntity subjectOfInterest;
 }

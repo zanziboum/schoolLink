@@ -19,5 +19,6 @@ public class UserEntity {
     private String extraInfo;
 
     @OneToMany(mappedBy = "user")
-    private Set<UserInterestEntity> interest;
+    private Set<UserInterestEntity> interests;
+
 }
