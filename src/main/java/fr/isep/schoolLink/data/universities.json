@@ -1,0 +1,290 @@
+{
+  "universities": [
+    {
+      "name": "Harvard University",
+      "specialty_domain": "Business",
+      "country": "United States"
+    },
+    {
+      "name": "University of Oxford",
+      "specialty_domain": "Science",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Stanford University",
+      "specialty_domain": "Technology",
+      "country": "United States"
+    },
+    {
+      "name": "ETH Zurich",
+      "specialty_domain": "Engineering",
+      "country": "Switzerland"
+    },
+    {
+      "name": "University of Tokyo",
+      "specialty_domain": "Medicine",
+      "country": "Japan"
+    },
+    {
+      "name": "Massachusetts Institute of Technology",
+      "specialty_domain": "Computer Science",
+      "country": "United States"
+    },
+    {
+      "name": "University of Cambridge",
+      "specialty_domain": "Arts",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "National University of Singapore",
+      "specialty_domain": "Social Sciences",
+      "country": "Singapore"
+    },
+    {
+      "name": "University of Toronto",
+      "specialty_domain": "Humanities",
+      "country": "Canada"
+    },
+    {
+      "name": "Sorbonne University",
+      "specialty_domain": "Languages",
+      "country": "France"
+    },
+    {
+      "name": "Yale University",
+      "specialty_domain": "Law",
+      "country": "United States"
+    },
+    {
+      "name": "University of Melbourne",
+      "specialty_domain": "Education",
+      "country": "Australia"
+    },
+    {
+      "name": "California Institute of Technology",
+      "specialty_domain": "Physics",
+      "country": "United States"
+    },
+    {
+      "name": "University of Cambridge",
+      "specialty_domain": "Mathematics",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Hong Kong",
+      "specialty_domain": "Finance",
+      "country": "Hong Kong"
+    },
+    {
+      "name": "Columbia University",
+      "specialty_domain": "Journalism",
+      "country": "United States"
+    },
+    {
+      "name": "Kyoto University",
+      "specialty_domain": "Environmental Studies",
+      "country": "Japan"
+    },
+    {
+      "name": "University of Zurich",
+      "specialty_domain": "Psychology",
+      "country": "Switzerland"
+    },
+    {
+      "name": "University of California, Berkeley",
+      "specialty_domain": "Sociology",
+      "country": "United States"
+    },
+    {
+      "name": "University College London",
+      "specialty_domain": "History",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Peking University",
+      "specialty_domain": "Economics",
+      "country": "China"
+    },
+    {
+      "name": "University of British Columbia",
+      "specialty_domain": "Biology",
+      "country": "Canada"
+    },
+    {
+      "name": "École Polytechnique",
+      "specialty_domain": "Engineering",
+      "country": "France"
+    },
+    {
+      "name": "Princeton University",
+      "specialty_domain": "Political Science",
+      "country": "United States"
+    },
+    {
+      "name": "University of Sydney",
+      "specialty_domain": "Medicine",
+      "country": "Australia"
+    },
+    {
+      "name": "Tsinghua University",
+      "specialty_domain": "Computer Science",
+      "country": "China"
+    },
+    {
+      "name": "Technical University of Munich",
+      "specialty_domain": "Technology",
+      "country": "Germany"
+    },
+    {
+      "name": "University of Chicago",
+      "specialty_domain": "Business",
+      "country": "United States"
+    },
+    {
+      "name": "University of Auckland",
+      "specialty_domain": "Environmental Science",
+      "country": "New Zealand"
+    },
+    {
+      "name": "University of Munich",
+      "specialty_domain": "Physics",
+      "country": "Germany"
+    },
+    {
+      "name": "London School of Economics and Political Science",
+      "specialty_domain": "Economics",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Seoul National University",
+      "specialty_domain": "Chemistry",
+      "country": "South Korea"
+    },
+    {
+      "name": "University of Sao Paulo",
+      "specialty_domain": "Medicine",
+      "country": "Brazil"
+    },
+    {
+      "name": "University of Copenhagen",
+      "specialty_domain": "Biology",
+      "country": "Denmark"
+    },
+    {
+      "name": "University of Michigan",
+      "specialty_domain": "Computer Science",
+      "country": "United States"
+    },
+    {
+      "name": "Australian National University",
+      "specialty_domain": "Social Sciences",
+      "country": "Australia"
+    },
+    {
+      "name": "Heidelberg University",
+      "specialty_domain": "Medicine",
+      "country": "Germany"
+    },
+    {
+      "name": "Hong Kong University of Science and Technology",
+      "specialty_domain": "Engineering",
+      "country": "Hong Kong"
+    },
+    {
+      "name": "University of Amsterdam",
+      "specialty_domain": "Psychology",
+      "country": "Netherlands"
+    },
+    {
+      "name": "University of Edinburgh",
+      "specialty_domain": "Literature",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "McGill University",
+      "specialty_domain": "Physics",
+      "country": "Canada"
+    },
+    {
+      "name": "University of Helsinki",
+      "specialty_domain": "Computer Science",
+      "country": "Finland"
+    },
+    {
+      "name": "University of Pennsylvania",
+      "specialty_domain": "Business",
+      "country": "United States"
+    },
+    {
+      "name": "University of Manchester",
+      "specialty_domain": "Chemistry",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of British Columbia",
+      "specialty_domain": "Education",
+      "country": "Canada"
+    },
+    {
+      "name": "University of California, Los Angeles",
+      "specialty_domain": "Film",
+      "country": "United States"
+    },
+    {
+      "name": "University of Zurich",
+      "specialty_domain": "Geography",
+      "country": "Switzerland"
+    },
+    {
+      "name": "King's College London",
+      "specialty_domain": "History",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of British Columbia",
+      "specialty_domain": "Mathematics",
+      "country": "Canada"
+    },
+    {
+      "name": "Ludwig Maximilian University of Munich",
+      "specialty_domain": "Medicine",
+      "country": "Germany"
+    },
+    {
+      "name": "University of Toronto",
+      "specialty_domain": "Philosophy",
+      "country": "Canada"
+    },
+    {
+      "name": "University of California, San Francisco",
+      "specialty_domain": "Medicine",
+      "country": "United States"
+    },
+    {
+      "name": "Korea Advanced Institute of Science and Technology",
+      "specialty_domain": "Engineering",
+      "country": "South Korea"
+    },
+    {
+      "name": "University of Sao Paulo",
+      "specialty_domain": "Agriculture",
+      "country": "Brazil"
+    },
+    {
+      "name": "University of Bristol",
+      "specialty_domain": "Chemistry",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Waterloo",
+      "specialty_domain": "Computer Science",
+      "country": "Canada"
+    },
+    {
+      "name": "University of Paris",
+      "specialty_domain": "Languages",
+      "country": "France"
+    }
+  ]
+}
+
