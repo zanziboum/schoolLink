@@ -1,0 +1,78 @@
+:root {
+    --black: rgba(0, 0, 0, 1);
+    --gray: rgba(126, 126, 126, 1);
+    --chocolate: rgba(198, 138, 98, 1);
+    --alto: rgba(217, 217, 217, 1);
+    --tulip-tree: rgba(243, 179, 64, 1);
+    --peach: rgba(255, 209, 176, 1);
+    --white: rgba(255, 255, 255, 1);
+    --font-size-xxs: 12px;
+    --font-size-s: 21px;
+    --font-size-m: 22px;
+    --font-size-1: 88px;
+    --font-size-xs2: 20px;
+    --font-family-bellefair: "Bellefair";
+    --font-family-inter: "Inter";
+    --font-family-inter-extralight: "Inter-Extralight";
+    --font-family-inter-medium: "Inter-Medium";
+}
+/* Classes */
+.bellefair-normal-black-20px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-xs2);
+    font-weight: 400; font-style: normal;
+}
+.bellefair-normal-black-22px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    font-style: normal;
+  }
+.bellefair-normal-black-22px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bellefair-normal-black-21px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-s);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bellefair-normal-black-88px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-1);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bellefair-normal-black-22px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bellefair-normal-black-12px {
+      color: var(--black);
+      font-family: var(--font-family-bellefair);
+      font-size: var(--font-size-xxs);
+      font-weight: 400;
+      font-style: normal;
+  }
+.bellefair-normal-black-88px {
+    color: var(--black);
+    font-family: var(--font-family-bellefair);
+    font-size: var(--font-size-1);
+    font-weight: 400;
+    font-style: normal;
+    }

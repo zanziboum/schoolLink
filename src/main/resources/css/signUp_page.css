@@ -1,0 +1,52 @@
+body{
+	font-family: 'Book Antiqua';
+	font-weight: bold;
+}
+.col-lg-4{
+	background: #be8a62;
+	position: fixed;
+	height: 100%;
+	text-align: center;
+}
+.col-lg-4 img{
+	width: 70%;
+	margin-top: 170px;
+}
+.col-lg-1{
+	margin-left: 510px;
+}
+.col-md-4{
+	text-align: center;
+	margin-top: 150px;
+}
+.col-md-4 h2{
+	text-align: left;
+	font-size: 70px;
+}
+.col-md-4 p{
+	text-align: left;
+}
+.col-md-4 .form-group input{
+	background: #ffd1b0;
+	color: black;
+	border: none;
+}
+.col-md-4 .radio{
+	float: left;
+}
+.col-md-4 .radio label{
+	font-weight: bold;
+	color: #bfbfbf;
+}
+.col-md-4 a{
+	float: right;
+	margin-top: 8px;
+	color: black;
+	text-decoration: none;
+}
+.col-md-4 .btn{
+	width: 200px;
+	background: #f3b340;
+	font-weight: bold;
+	border: none;
+}

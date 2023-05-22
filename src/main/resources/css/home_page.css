@@ -1,0 +1,41 @@
+.resize{
+    width: 30px;
+}
+.profile-card {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    border: 1px dashed black;
+    border-radius: 14px;
+}
+.profile-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-address {
+    margin-bottom: 0;
+}
+.card-body img {
+    max-width: 100%;
+    margin-top: 10px;
+}
+.color{
+    color: #be8a62;
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile page</title>
+    <link rel="stylesheet" href="../css/profil_page.css">
+    <link rel="stylesheet" href="../css/navBar.css">
+    <link rel="stylesheet" href="../css/styleGuide.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar justify-content-center">
+
+  <img class="logo" src="../img/Logo SchoolLink.png"/>
+  <div class="barre-de-recherche mx-4">
+    <img class="search" src="../img/icons8-chercher.svg ">
+    <input class="recherche" placeholder="Search">
+  </div>
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='home_page.html';">
+      <img class="exterior" src="../img/icons8-accueil.svg" alt="Exterior" />
+      <div class="place valign-text-middle bellefair-normal-black-20px">Home</div>
+    </div>
+  <div class="link yellow-color-hover mx-4" onclick="window.location.href='school_page.html';">
+    <img class="graduation-cap" src="../img/icons8-chapeau-de-diplôme-100.png" alt="Graduation Cap" />
+    <div class="school valign-text-middle bellefair-normal-black-20px">School</div>
+  </div>
+  <div class="link yellow-color-hover mx-4" onclick="window.location.href='event_page.html';">
+    <img class="event-accepted-tentatively" src="../img/icons8-aujourd'hui-100.png" alt="Event Accepted Tentatively" />
+    <div class="event valign-text-middle bellefair-normal-black-20px">Event</div>
+  </div>
+  <div class="link yellow-color-hover mx-4" onclick="window.location.href='chat_page.html';">
+    <img class="chat-bubble" src="../img/icons8-communication-100.png" alt="Chat Bubble" />
+    <div class="chat valign-text-middle bellefair-normal-black-20px">Chat</div>
+  </div>
+</nav>
+
+
+<div id="profile">
+  <div>
+    <img src="https://via.placeholder.com/150" alt="Photo de profil">
+  </div>
+  <div>
+    <h1 class="text-left">Nom Prénom</h1>
+    <h2 class="text-left">Adresse</h2>
+  </div>
+  <div>
+    <button class="edit-button float-lg-right" onclick="document.getElementById('popup').style.display = 'flex'">Modifier le profil</button>
+  </div>
+</div>
+
+
+<div id="popup">
+    <form class="profile-form align-items-start">
+      <h2>Modifier les informations de profil</h2>
+      <div>
+        <label for="first-name-input" class="left-label">Nom :</label>
+        <input type="text" class="form-control" id="first-name-input" placeholder="Entrez votre nom">
+        <label for="last-name-input" class="left-label">Prénom :</label>
+        <input type="text" class="form-control" id="last-name-input" placeholder="Entrez votre prénom">
+      </div>
+
+
+      <div>
+        <h3>Vos informations :</h3>
+        <div class="bordered-section">
+          <label for="age-radio1" class="left-label">Etes-vous majeur ?*</label>
+          <div class="radio-options">
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="age-radio1" id="age-oui" value="oui">
+              <label class="form-check-label option" for="age-oui">
+                Oui
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="age-radio1" id="age-non" value="non">
+              <label class="form-check-label option" for="age-non">
+                Non
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="age-radio1" id="age-inconnu" value="inconnu">
+              <label class="form-check-label option" for="age-inconnu">
+                Je ne sais pas
+              </label>
+            </div>
+          </div>
+
+          <label for="age-radio2" class="left-label">Etes-vous un giga chad ?*</label>
+          <div class="radio-options">
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="chad" id="chad-oui" value="oui">
+              <label class="form-check-label option" for="chad-oui">
+                Oui
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="chad" id="chad-non" value="non">
+              <label class="form-check-label option" for="chad-non">
+                Non
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="chad" id="chad-inconnu" value="inconnu">
+              <label class="form-check-label option" for="chad-inconnu">
+                Je ne sais pas
+              </label>
+            </div>
+          </div>
+
+          <label for="age-radio3" class="left-label">Quel est votre sex ?*</label>
+          <div class="radio-options">
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="sex" id="sex-women" value="oui">
+              <label class="form-check-label option" for="sex-women">
+                Femme
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="sex" id="sex-man" value="non">
+              <label class="form-check-label option" for="sex-man">
+                Homme
+              </label>
+            </div>
+          </div>
+
+          <label for="age-radio3" class="left-label">Etes-vous fumeur ?</label>
+          <div class="radio-options">
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="smoke" id="smoke-oui" value="oui">
+              <label class="form-check-label option" for="smoke-oui">
+                Oui
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="smoke" id="smoke-non" value="non">
+              <label class="form-check-label option" for="smoke-non">
+                Non
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="smoke" id="smoke-parfois" value="de temps en temps">
+              <label class="form-check-label option" for="smoke-parfois">
+                de temps en temps
+              </label>
+            </div>
+          </div>
+
+          <label for="age-radio3" class="left-label">Buvez-vous de l'alcool ?</label>
+          <div class="radio-options">
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="drink" id="drink-oui" value="oui">
+              <label class="form-check-label option" for="drink-oui">
+                Oui
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="drink" id="drink-non" value="non">
+              <label class="form-check-label option" for="drink-non">
+                Non
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input option" type="radio" name="drink" id="drink-parfois" value="de temps en temps">
+              <label class="form-check-label option" for="drink-parfois">
+                de temps en temps
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="edit-button float-lg-right">Enregistrer</button>
+    </form>
+</div>
+
+
+<script>
+  const editProfileBtn = document.getElementById("edit-profile-btn");
+  const popup = document.querySelector(".popup");
+  const closeBtn = document.querySelector(".close-btn");
+
+  editProfileBtn.addEventListener("click", () => {
+    popup.style.display = "flex";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+</script>
+
+
+
+
+
+
+</body>
+</html>
