@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.util.List;
 
 public class ReadJsonFile {
-    String filepath = "C:\\Users\\jbouv\\OneDrive\\Desktop\\Ecole\\ISEP\\Cycle_ingenieur\\A2\\Web Technologies\\Project\\src\\main\\java\\fr\\isep\\schoolLink\\data\\universities.json";
     public static JSONArray readJSONFile(String filePath) {
         JSONParser parser = new JSONParser();
 
