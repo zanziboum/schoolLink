@@ -1,4 +1,4 @@
-package fr.isep.schoolLink.security;
+package fr.isep.schoolLink.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

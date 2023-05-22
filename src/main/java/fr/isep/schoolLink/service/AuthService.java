@@ -33,7 +33,7 @@ public class AuthService {
                 roles
         );
         return LoginResponse.builder()
-                .accesToken(token)
+                .accessToken(token)
                 .build();
     }
 }

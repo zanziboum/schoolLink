@@ -1,5 +1,6 @@
-package fr.isep.schoolLink.security;
+package fr.isep.schoolLink.config;
 
+import fr.isep.schoolLink.security.JwtAuthenticationFilter;
 import fr.isep.schoolLink.service.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
