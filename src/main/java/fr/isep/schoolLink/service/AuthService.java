@@ -6,6 +6,7 @@ import fr.isep.schoolLink.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -18,22 +19,31 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     public LoginResponse attemptLogin (String email, String password){
-        var authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(email, password)
-        );
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        var principal = (UserPrincipal) authentication.getPrincipal();
+        try {
+            var authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(email, password)
+            );
 
-        var roles = principal.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority).toList();
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            var principal = (UserPrincipal) authentication.getPrincipal();
 
-        var token = jwtIssuer.issue(
-                principal.getUserId(),
-                principal.getEmail(),
-                roles
-        );
-        return LoginResponse.builder()
-                .accessToken(token)
-                .build();
+            var roles = principal.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority).toList();
+
+            var token = jwtIssuer.issue(
+                    principal.getUserId(),
+                    principal.getEmail(),
+                    roles
+            );
+            return LoginResponse.builder()
+                    .accessToken(token)
+                    .success(true)
+                    .build();
+
+        }catch (AuthenticationException e){
+            return LoginResponse.builder()
+                    .success(false)
+                    .build();
+        }
     }
 }

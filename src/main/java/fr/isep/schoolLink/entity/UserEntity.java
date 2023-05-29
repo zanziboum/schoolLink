@@ -15,6 +15,10 @@ public class UserEntity {
     private String email;
     @JsonIgnore
     private String password;
+    private String firstName;
+    private String lastName;
+    private String imageLink;
+    private String address;
     private String role;
     private String extraInfo;
 

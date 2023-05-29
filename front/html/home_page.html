@@ -14,7 +14,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javaScript/homePage.js"></script>
 
 </head>
 <body>
@@ -43,7 +45,6 @@
       </div>
 </nav>
 
-
 <div class="container">
 
   <div class="row justify-content-center">
@@ -51,11 +52,11 @@
         <a href="profil_page.html" class="color">
           <h5 class="profile-title" >Your profile</h5>
         </a>
-        <div class="profile-pic rounded-circle"></div>
+        <img class="profile-pic rounded-circle" src="" id="profilePic">
         <div class="profile-info">
-          <h6 class="profile-name">Prénom</h6>
-          <h6 class="profile-name">Nom</h6>
-          <p class="profile-address">Adresse</p>
+          <h6 class="profile-name" id="firstName">Prénom</h6>
+          <h6 class="profile-name" id="lastName">Nom</h6>
+          <p class="profile-address" id="address">Adresse</p>
         </div>
       </div>
     <div class="col-md-8">

@@ -14,6 +14,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javaScript/profilePage.js"></script>
+
 </head>
 <body>
 
@@ -45,11 +49,11 @@
 
 <div id="profile">
   <div>
-    <img src="https://via.placeholder.com/150" alt="Photo de profil">
+    <img src="https://via.placeholder.com/150" id="profilePic" alt="Photo de profil">
   </div>
   <div>
-    <h1 class="text-left">Nom Prénom</h1>
-    <h2 class="text-left">Adresse</h2>
+    <h1 class="text-left" id="name">Nom Prénom</h1>
+    <h2 class="text-left" id="address">Adresse</h2>
   </div>
   <div>
     <button class="edit-button float-lg-right" onclick="document.getElementById('popup').style.display = 'flex'">Modifier le profil</button>
@@ -58,125 +62,70 @@
 
 
 <div id="popup">
-    <form class="profile-form align-items-start">
+    <form class="profile-form align-items-start" id="form-profile">
       <h2>Modifier les informations de profil</h2>
-      <div>
-        <label for="first-name-input" class="left-label">Nom :</label>
-        <input type="text" class="form-control" id="first-name-input" placeholder="Entrez votre nom">
-        <label for="last-name-input" class="left-label">Prénom :</label>
-        <input type="text" class="form-control" id="last-name-input" placeholder="Entrez votre prénom">
-      </div>
+        <div>
+            <label for="first-name-input" class="left-label">Nom :</label>
+            <input type="text" class="form-control" id="first-name-input" placeholder="Entrez votre nom">
+            <label for="last-name-input" class="left-label">Prénom :</label>
+            <input type="text" class="form-control" id="last-name-input" placeholder="Entrez votre prénom">
+            <label for="address-input" class="left-label">Adresse :</label>
+            <input type="text" class="form-control" id="address-input" placeholder="Entrez votre Addresse">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
 
 
       <div>
         <h3>Vos informations :</h3>
         <div class="bordered-section">
-          <label for="age-radio1" class="left-label">Etes-vous majeur ?*</label>
-          <div class="radio-options">
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="age-radio1" id="age-oui" value="oui">
-              <label class="form-check-label option" for="age-oui">
-                Oui
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="age-radio1" id="age-non" value="non">
-              <label class="form-check-label option" for="age-non">
-                Non
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="age-radio1" id="age-inconnu" value="inconnu">
-              <label class="form-check-label option" for="age-inconnu">
-                Je ne sais pas
-              </label>
-            </div>
-          </div>
 
-          <label for="age-radio2" class="left-label">Etes-vous un giga chad ?*</label>
-          <div class="radio-options">
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="chad" id="chad-oui" value="oui">
-              <label class="form-check-label option" for="chad-oui">
-                Oui
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="chad" id="chad-non" value="non">
-              <label class="form-check-label option" for="chad-non">
-                Non
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="chad" id="chad-inconnu" value="inconnu">
-              <label class="form-check-label option" for="chad-inconnu">
-                Je ne sais pas
-              </label>
-            </div>
-          </div>
 
-          <label for="age-radio3" class="left-label">Quel est votre sex ?*</label>
-          <div class="radio-options">
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="sex" id="sex-women" value="oui">
-              <label class="form-check-label option" for="sex-women">
-                Femme
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="sex" id="sex-man" value="non">
-              <label class="form-check-label option" for="sex-man">
-                Homme
-              </label>
-            </div>
-          </div>
+            <label>
+              <input type="checkbox" name="matieres" value="MATHS">
+              Mathématiques
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="COMPUTER SCIENCE">
+              Informatique
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="PHYSICS">
+              Physique
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="CHEMISTRY">
+              Chimie
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="FRENCH">
+              Francais
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="LANGUAGES">
+              Langues étrangères
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="ECONOMY">
+              Économie
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="PHILOSOPHY">
+              Philosophie
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="HISTORY">
+              Histoire
+            </label><br>
+            <label>
+              <input type="checkbox" name="matieres" value="ART">
+              Art et Design
+            </label><br>
 
-          <label for="age-radio3" class="left-label">Etes-vous fumeur ?</label>
-          <div class="radio-options">
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="smoke" id="smoke-oui" value="oui">
-              <label class="form-check-label option" for="smoke-oui">
-                Oui
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="smoke" id="smoke-non" value="non">
-              <label class="form-check-label option" for="smoke-non">
-                Non
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="smoke" id="smoke-parfois" value="de temps en temps">
-              <label class="form-check-label option" for="smoke-parfois">
-                de temps en temps
-              </label>
-            </div>
-          </div>
 
-          <label for="age-radio3" class="left-label">Buvez-vous de l'alcool ?</label>
-          <div class="radio-options">
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="drink" id="drink-oui" value="oui">
-              <label class="form-check-label option" for="drink-oui">
-                Oui
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="drink" id="drink-non" value="non">
-              <label class="form-check-label option" for="drink-non">
-                Non
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input option" type="radio" name="drink" id="drink-parfois" value="de temps en temps">
-              <label class="form-check-label option" for="drink-parfois">
-                de temps en temps
-              </label>
-            </div>
           </div>
+        <button type="submit" class="edit-button float-lg-right">Enregistrer</button>
         </div>
-      </div>
-      <button type="submit" class="edit-button float-lg-right">Enregistrer</button>
+
     </form>
 </div>
 

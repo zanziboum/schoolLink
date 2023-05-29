@@ -43,9 +43,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/").permitAll()
                         .requestMatchers("api/auth/**").permitAll()
                         .requestMatchers("api/search/**").permitAll()
-                        .requestMatchers("/login").permitAll()
-                        //TODO: Solve role-based authorisation problem
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("api/").authenticated()
                         .anyRequest().authenticated()
                 );
 
