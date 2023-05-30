@@ -15,7 +15,10 @@ console.log("coucou")
             response.data.forEach(schoolName => {
                 const schoolCard = document.createElement("div");
                 schoolCard.classList.add("profil-ecole");
-
+                const followButton = schoolCard.querySelector(".follow-button");
+                followButton.addEventListener("click", function() {
+                    const followedSchool = { name: schoolName };
+                    const token = localStorage.getItem("accessToken");
                 // Code pour générer le contenu de la carte de l'école
                 const cardContent = `
                 <div class="frame-8">
@@ -29,7 +32,9 @@ console.log("coucou")
                             <div class="information-generale valign-text-middle">
                                 Information generales sur l'ecole<br />
                                 olqhwdaold<br/>
-                                aidkh
+                                <div class="frame-49">
+                                    <button class="follow-button valign-text-middle inter-normal-black-12px">Follow</button>
+                                </div>
                             </div>
                         </div>
                         <div class="frame-49">
@@ -43,6 +48,15 @@ console.log("coucou")
                 schoolCardsContainer.appendChild(schoolCard);
 
             });
+                axios.post("http://localhost:8080/api/user/followed-schools", followedSchool, {
+                    headers: {
+                        Authorization: "Bearer " + token
+                    }
+                })
+                    .then(response => {
+                        console.log("School added to followed schools:", response.data);
+                        // Additional actions if needed
+                    })
 
         })
         .catch(error => {
@@ -51,4 +65,4 @@ console.log("coucou")
         .finally(() => {
 
         });
-})
+})}
