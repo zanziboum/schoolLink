@@ -1,5 +1,6 @@
 package fr.isep.schoolLink.controller;
 
+import fr.isep.schoolLink.entity.UserEntity;
 import fr.isep.schoolLink.model.LoginRequest;
 import fr.isep.schoolLink.model.LoginResponse;
 import fr.isep.schoolLink.security.UserPrincipal;
@@ -26,7 +27,11 @@ public class AuthController {
     }
 
     @PostMapping("register")
-    public String register(@RequestBody @Validated LoginRequest credentials){
+    public String register(@RequestBody @Validated UserEntity credentials){
+        UserEntity user = new UserEntity();
+        user.setEmail(credentials.getEmail());
+        user.setPassword( passwordEncoder.encode(credentials.getPassword()));
+
         userService.AddUser(
                 userService.createUser(credentials.getEmail(), passwordEncoder.encode(credentials.getPassword()))
         );

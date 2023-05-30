@@ -28,7 +28,6 @@ public class UserService {
         user.setPassword(password);
         user.setRole("USER");
         return user;
-
     }
 
 }

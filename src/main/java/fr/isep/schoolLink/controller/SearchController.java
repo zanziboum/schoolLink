@@ -32,7 +32,7 @@ public class SearchController {
     }
 
     @GetMapping ("school")
-    public List<SchoolFormationEntity> getSchoolWithUser(@AuthenticationPrincipal UserPrincipal principal){
+    public List<String> getSchoolWithUser(@AuthenticationPrincipal UserPrincipal principal){
 
         //Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
         Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
@@ -41,12 +41,19 @@ public class SearchController {
             UserEntity user = userOptional.get();
             List<UserInterestEntity> interests = user.getInterests();
             List<SubjectOfInterestEntity> subjects = interests.stream().map(UserInterestEntity::getSubjectOfInterest).toList();
-            List<SchoolFormationEntity> schools = new ArrayList<>();
-            subjects.forEach(subject -> {
-                schools.addAll(schoolFormationRepository.findBySubjectOfInterest(subject)) ;
+            List<String> school = new ArrayList<>();
+            subjects.forEach(interest ->{
+                List<SchoolFormationEntity> formations = schoolFormationRepository.findBySubjectOfInterest(interest);
+                formations.forEach(formation->{
+                    school.add(formation.getSchool().getName());
+                });
             });
 
-            return schools ;
+
+
+            //Optional<SchoolEntity> school = schoolRepository.findById(formations.get(0).getId());
+
+            return school ;
         }
         return null;
 
