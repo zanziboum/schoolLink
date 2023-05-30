@@ -74,10 +74,4 @@ public class ReadJsonFile {
         System.out.println(result);
         return result;
     }
-
-    public static void main(String[] args) {
-        getUniversitySpecialtyDomain(readJSONFile(filepath));
-    }
-
-
 }

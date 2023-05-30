@@ -1,14 +1,15 @@
 package fr.isep.schoolLink.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import fr.isep.schoolLink.data.ReadJsonFile;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 
 @Entity
 @Data
-public class SubjectOfInterestEntity {
+public class SubjectOfInterestEntity{
     @Id
     @GeneratedValue
     Long id;
