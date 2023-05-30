@@ -46,7 +46,6 @@
   </div>
 </nav>
 
-
 <div id="profile">
   <div>
     <img src="https://via.placeholder.com/150" id="profilePic" alt="Photo de profil">
@@ -56,30 +55,28 @@
     <h2 class="text-left" id="address">Adresse</h2>
   </div>
   <div>
-    <button class="edit-button float-lg-right" onclick="document.getElementById('popup').style.display = 'flex'">Modifier le profil</button>
+    <button class="edit-button float-lg-right" type="button" onclick="document.getElementById('popup').style.display = 'flex'">Modifier le profil</button>
   </div>
 </div>
 
-
 <div id="popup">
     <form class="profile-form align-items-start" id="form-profile">
+
       <h2>Modifier les informations de profil</h2>
         <div>
+
             <label for="first-name-input" class="left-label">Nom :</label>
             <input type="text" class="form-control" id="first-name-input" placeholder="Entrez votre nom">
             <label for="last-name-input" class="left-label">Prénom :</label>
             <input type="text" class="form-control" id="last-name-input" placeholder="Entrez votre prénom">
             <label for="address-input" class="left-label">Adresse :</label>
             <input type="text" class="form-control" id="address-input" placeholder="Entrez votre Addresse">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+
         </div>
 
-
       <div>
-        <h3>Vos informations :</h3>
+        <h3>Vos intérêts :</h3>
         <div class="bordered-section">
-
-
             <label>
               <input type="checkbox" name="matieres" value="MATHS">
               Mathématiques
@@ -120,34 +117,10 @@
               <input type="checkbox" name="matieres" value="ART">
               Art et Design
             </label><br>
-
-
           </div>
-        <button type="submit" class="edit-button float-lg-right">Enregistrer</button>
+        <button type="submit" id="edit-button" class="edit-button float-lg-right">Enregistrer</button>
         </div>
-
     </form>
 </div>
-
-
-<script>
-  const editProfileBtn = document.getElementById("edit-profile-btn");
-  const popup = document.querySelector(".popup");
-  const closeBtn = document.querySelector(".close-btn");
-
-  editProfileBtn.addEventListener("click", () => {
-    popup.style.display = "flex";
-  });
-
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-</script>
-
-
-
-
-
-
 </body>
 </html>

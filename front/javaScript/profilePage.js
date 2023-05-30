@@ -1,6 +1,11 @@
-
-
 document.addEventListener("DOMContentLoaded", async function () {
+
+    const popup = document.getElementById("popup");
+    const closeBtn = document.getElementById("edit-button");
+
+    closeBtn.addEventListener("submit", () => {
+        popup.style.display = "none";
+    });
 
     const token = localStorage.getItem("accessToken");
 
@@ -21,6 +26,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         .catch(error => {console.log(error)});
 
     document.getElementById("form-profile").addEventListener("submit", async (event)=>{
+        event.preventDefault();
         var matieresCoches = document.querySelectorAll('input[name="matieres"]:checked');
         var matieresSelectionnees = [];
 
@@ -32,15 +38,26 @@ document.addEventListener("DOMContentLoaded", async function () {
         var firstName = document.getElementById("first-name-input").value;
         var lastName = document.getElementById("last-name-input").value;
         var address = document.getElementById("address-input").value;
-        await axios.put("http://localhost:8080/api/user/profile", {
+        await axios.put("http://localhost:8080/api/user/update", {
             firstName: firstName,
             lastName: lastName,
-            address: address
-        }).then(response =>{
-            console.log(response)
+            address: address,
+            interests: matieresSelectionnees
+        }, {
+            headers: {
+                Authorization: "Bearer " + token
+            }
         })
-            .catch(error => { console.log(error)})
-
+            .then(response => {
+                console.log(response);
+                document.getElementById("name").textContent = response.data.firstName + " " + response.data.lastName;
+                document.getElementById("address").textContent = response.data.address;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .finally(() => {
+                popup.style.display = "none";
+            });
     });
 });
-
