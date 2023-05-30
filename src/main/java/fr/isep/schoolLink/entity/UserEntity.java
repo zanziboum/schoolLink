@@ -26,6 +26,6 @@ public class UserEntity {
     private List<UserInterestEntity> interests;
 
     @OneToMany(mappedBy = "user")
-    private List<SchoolEntity> followedSchools;
+    private List<FollowEntity> followedSchools;
 
 }
