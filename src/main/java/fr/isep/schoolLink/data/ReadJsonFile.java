@@ -39,7 +39,7 @@ public class ReadJsonFile {
             String name = (String) university.get("name");
             result.add(name);
         }
-        eraseDuplicates(result);
+        result = eraseDuplicates(result);
         System.out.println(result);
         return result;
     }
@@ -52,15 +52,13 @@ public class ReadJsonFile {
             String country = (String) university.get("country");
             result.add(country);
         }
-        eraseDuplicates(result);
+        result = eraseDuplicates(result);
         System.out.println(result);
         return result;
     }
 
     public static List<String> eraseDuplicates(List<String> list){
-        Set<String> set = new LinkedHashSet<>(list);
-        List<String> result = new ArrayList<>(set);
-        return result;
+        return list.stream().distinct().toList();
    }
 
     public static List<String> getUniversitySpecialtyDomain(JSONArray universities) {
@@ -70,7 +68,7 @@ public class ReadJsonFile {
             String specialtyDomain = (String) university.get("specialty_domain");
             result.add(specialtyDomain);
         }
-        eraseDuplicates(result);
+        result = eraseDuplicates(result);
         System.out.println(result);
         return result;
     }
