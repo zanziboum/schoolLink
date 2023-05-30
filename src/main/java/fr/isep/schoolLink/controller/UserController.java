@@ -12,9 +12,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -41,7 +39,7 @@ public class UserController {
             user.setLastName(request.getLastName());
             user.setAddress(request.getAddress());
 
-            Set<UserInterestEntity> interests = new HashSet<>();
+            List<UserInterestEntity> interests = new ArrayList<>();
             for (String subjectName : request.getInterests()) {
                 SubjectOfInterestEntity subject = subjectOfInterestRepository.findByName(subjectName);
                 if (subject != null) {

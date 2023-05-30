@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,6 +23,6 @@ public class UserEntity {
     private String extraInfo;
 
     @OneToMany(mappedBy = "user")
-    private Set<UserInterestEntity> interests;
+    private List<UserInterestEntity> interests;
 
 }

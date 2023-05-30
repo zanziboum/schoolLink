@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,5 +18,5 @@ public class SchoolEntity {
     private String address;
 
     @OneToMany(mappedBy = "school")
-    private Set<SchoolFormationEntity> formations;
+    private List<SchoolFormationEntity> formations;
 }

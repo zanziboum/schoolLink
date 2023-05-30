@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,17 +32,23 @@ public class SearchController {
     }
 
     @GetMapping ("school")
-    public String getSchoolWithUser(@AuthenticationPrincipal UserPrincipal principal){
+    public List<SchoolFormationEntity> getSchoolWithUser(@AuthenticationPrincipal UserPrincipal principal){
 
         //Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
         Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
 
         if(userOptional.isPresent()){
             UserEntity user = userOptional.get();
-            Set<UserInterestEntity> interests = user.getInterests();
-            return user.getId() + " " + user.getId() + " " + interests.size() ;
+            List<UserInterestEntity> interests = user.getInterests();
+            List<SubjectOfInterestEntity> subjects = interests.stream().map(UserInterestEntity::getSubjectOfInterest).toList();
+            List<SchoolFormationEntity> schools = new ArrayList<>();
+            subjects.forEach(subject -> {
+                schools.addAll(schoolFormationRepository.findBySubjectOfInterest(subject)) ;
+            });
+
+            return schools ;
         }
-        return "user not found";
+        return null;
 
     }
 }
