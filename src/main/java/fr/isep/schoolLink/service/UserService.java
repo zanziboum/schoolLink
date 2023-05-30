@@ -27,7 +27,6 @@ public class UserService {
         user.setPassword(password);
         user.setRole("USER");
         return user;
-
     }
     public UserEntity createUser(String firstName, String lastName, String email, String password, String address){
         UserEntity user = new UserEntity();

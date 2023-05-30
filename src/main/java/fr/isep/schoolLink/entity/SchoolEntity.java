@@ -19,4 +19,6 @@ public class SchoolEntity {
 
     @OneToMany(mappedBy = "school")
     private List<SchoolFormationEntity> formations;
+
+
 }
