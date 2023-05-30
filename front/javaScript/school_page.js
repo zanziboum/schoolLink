@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         const followedSchool = { name: schoolName };
 
                         axios
-                            .post("http://localhost:8080/api/user/followed-schools", followedSchool, {
+                            .post("http://localhost:8080/api/follow/add", followedSchool, {
                                 headers: {
                                     Authorization: "Bearer " + token,
                                 },
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                         const unfollowedSchool = { name: schoolName };
                         axios
-                            .delete("http://localhost:8080/api/user/followed-schools", {
+                            .delete("http://localhost:8080/api/follow/delete", {
                                 headers: {
                                     Authorization: "Bearer " + token,
                                 },

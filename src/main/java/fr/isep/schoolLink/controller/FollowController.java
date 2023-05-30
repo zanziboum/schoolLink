@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,10 +17,11 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("api/follow")
 public class FollowController {
     final SchoolRepository schoolRepository;
     final UserRepository userRepository;
-    @PostMapping("domain")
+    @PostMapping("add")
     public void addFollow(SchoolEntity school, @AuthenticationPrincipal UserPrincipal principal){
         Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
         if(userOptional.isPresent()){
@@ -29,7 +31,7 @@ public class FollowController {
         }
     }
 
-    @PostMapping("domain")
+    @PostMapping("delete")
     public void deleteFollow(SchoolEntity school, @AuthenticationPrincipal UserPrincipal principal){
         Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
         if(userOptional.isPresent()){
