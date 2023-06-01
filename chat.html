@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="../css/home_page.css">
+    <link rel="stylesheet" href="../css/navBar.css">
+    <link rel="stylesheet" href="../css/styleGuide.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javaScript/homePage.js"></script>
+
+</head>
+<body>
+<nav class="navbar justify-content-center">
+
+    <img class="logo" src="../img/Logo SchoolLink.png"/>
+    <div class="barre-de-recherche mx-4">
+        <img class="search" src="../img/icons8-chercher.svg ">
+        <input class="recherche" placeholder="Search">
+    </div>
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='home_page.html';">
+        <img class="exterior" src="../img/icons8-accueil.svg" alt="Exterior" />
+        <div class="place valign-text-middle bellefair-normal-black-20px">Home</div>
+    </div>
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='school_page.html';">
+        <img class="graduation-cap" src="../img/icons8-chapeau-de-diplôme-100.png" alt="Graduation Cap" />
+        <div class="school valign-text-middle bellefair-normal-black-20px">School</div>
+    </div>
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='event_page.html';">
+        <img class="event-accepted-tentatively" src="../img/icons8-aujourd'hui-100.png" alt="Event Accepted Tentatively" />
+        <div class="event valign-text-middle bellefair-normal-black-20px">Event</div>
+    </div>
+    <div class="onPage yellow-color-hover mx-4" onclick="window.location.href='chat_page.html';">
+        <img class="chat-bubble" src="../img/icons8-communication-100.png" alt="Chat Bubble" />
+        <div class="chat valign-text-middle bellefair-normal-black-20px">Chat</div>
+    </div>
+</nav>
+		<!--content-->
+		<div class="container">
+			<div class="col-lg-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2>Chat</h2>
+						<a href="#"><i class="fa fa-edit"></i></a>
+					</div>
+					<div class="panel-body">
+						<form>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search" name="search">
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+								</div>
+							</div>
+						</form>
+						<ul class="nav nav-pills nav-stacked">
+							<li class="active">
+								<a data-toggle="pill" href="#menu1">
+									<div class="media">
+										<div class="media-left">
+											<img src="img/2.png" class="media-object" style="width:60px">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Docteur john</h4>
+											<p>bonjour...</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a data-toggle="pill" href="#menu2">
+									<div class="media">
+										<div class="media-left">
+											<img src="img/2.png" class="media-object" style="width:60px">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Doctuer john</h4>
+											<p>bonjour...</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a data-toggle="pill" href="#menu3">
+									<div class="media">
+										<div class="media-left">
+											<img src="img/2.png" class="media-object" style="width:60px">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">docteur john</h4>
+											<p>bonjour...</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a data-toggle="pill" href="#menu4">
+									<div class="media">
+										<div class="media-left">
+											<img src="img/2.png" class="media-object" style="width:60px">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Bala</h4>
+											<p>docteur john...</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-9">
+				<div class="tab-content">
+					<div id="menu1" class="tab-pane fade in active">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="media">
+									<div class="media-left">
+										<img src="img/2.png" class="media-object" style="width:60px">
+									</div>
+									<div class="media-body">
+										<h2 class="media-heading">Doctuer jean</h2>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+										<p>Bonjour comment vas -tu?.</p>
+									</div>
+								</div>
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+										<p>Le envoyer un texto pour que mon ami.</p>
+									</div>
+								</div>
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+										<p>envoyer un SMS à mon ami.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<textarea class="form-control" placeholder="Rediger un message ....."></textarea><br>
+								<button type="submit" class="btn btn-md">Envoyer</button>
+							</div>
+						</div>
+					</div>
+					<div id="menu2" class="tab-pane fade">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="media">
+									<div class="media-left">
+										<img src="img/1.png" class="media-object" style="width:60px">
+									</div>
+									<div class="media-body">
+										<h2 class="media-heading">Guna</h2>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+										<p>envoyer un SMS à mon ami.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<textarea class="form-control" placeholder="Rediger un message ....."></textarea><br>
+								<button type="submit" class="btn btn-md">Envoyer</button>
+							</div>
+						</div>
+					</div>
+					<div id="menu3" class="tab-pane fade">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="media">
+									<div class="media-left">
+										<img src="img/1.png" class="media-object" style="width:60px">
+									</div>
+									<div class="media-body">
+										<h2 class="media-heading">Praveen</h2>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+										<p>Bonjour ca va?.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<textarea class="form-control" placeholder="Rediger un message ....."></textarea><br>
+								<button type="submit" class="btn btn-md">Envoyer</button>
+							</div>
+						</div>
+					</div>
+					<div id="menu4" class="tab-pane fade">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="media">
+									<div class="media-left">
+										<img src="img/1.png" class="media-object" style="width:60px">
+									</div>
+									<div class="media-body">
+										<h2 class="media-heading">Bala</h2>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+										<p>envoyer un SMS à mon ami</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<textarea class="form-control" placeholder="Rediger un message ....."></textarea><br>
+								<button type="submit" class="btn btn-md">Envoyer</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
