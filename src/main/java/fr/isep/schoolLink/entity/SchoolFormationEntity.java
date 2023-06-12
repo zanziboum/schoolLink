@@ -1,5 +1,6 @@
 package fr.isep.schoolLink.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ public class SchoolFormationEntity {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "school_id")
     private SchoolEntity school;

@@ -47,4 +47,11 @@ public class SchoolController {
             return ResponseEntity.ok("Adresse e-mail disponible.");
         }
     }
+
+    @GetMapping("test")
+    public void testOui(){
+        schoolService.testadd();
+    }
+
+
 }
