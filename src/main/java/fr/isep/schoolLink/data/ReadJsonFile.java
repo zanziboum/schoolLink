@@ -18,18 +18,14 @@ public class ReadJsonFile {
         JSONParser parser = new JSONParser();
 
         try {
-            // Read the JSON file
             Object obj = parser.parse(new FileReader(filePath));
 
-            // Convert the object to a JSON object
             JSONObject jsonObject = (JSONObject) obj;
 
-            // Get the universities array
             return (JSONArray) jsonObject.get("universities");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
     public static List<String> getUniversityNames(JSONArray universities) {
@@ -43,8 +39,6 @@ public class ReadJsonFile {
         System.out.println(result);
         return result;
     }
-
-
     public static List<String> getUniversityCountries(JSONArray universities) {
         List<String> result = new ArrayList<>(numberOfSchools);
         for (int i=0;i<numberOfSchools;i++){
@@ -56,11 +50,9 @@ public class ReadJsonFile {
         System.out.println(result);
         return result;
     }
-
     public static List<String> eraseDuplicates(List<String> list){
         return list.stream().distinct().toList();
    }
-
     public static List<String> getUniversitySpecialtyDomain(JSONArray universities) {
         List<String> result = new ArrayList<>(numberOfSchools);
         for (int i=0;i<numberOfSchools;i++){
@@ -72,5 +64,4 @@ public class ReadJsonFile {
         System.out.println(result);
         return result;
     }
-
 }

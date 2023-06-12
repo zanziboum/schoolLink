@@ -7,6 +7,7 @@ import fr.isep.schoolLink.repository.FollowRepository;
 import fr.isep.schoolLink.repository.SchoolRepository;
 import fr.isep.schoolLink.repository.UserRepository;
 import fr.isep.schoolLink.security.UserPrincipal;
+import fr.isep.schoolLink.service.FollowService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,15 +25,18 @@ public class FollowController {
     final SchoolRepository schoolRepository;
     final UserRepository userRepository;
     final FollowRepository followRepository;
+    final FollowService followService;
+
     @PostMapping("add")
-    public void addFollow(SchoolEntity school, @AuthenticationPrincipal UserPrincipal principal){
+    public void addFollow(String schoolName, @AuthenticationPrincipal UserPrincipal principal) {
         Optional<UserEntity> userOptional = userRepository.findById(principal.getUserId());
-        if(userOptional.isPresent()){
+        if (userOptional.isPresent()) {
             UserEntity user = userOptional.get();
-            FollowEntity follow = new FollowEntity();
-            follow.setUser(user);
-            follow.setSchool(school);
-            followRepository.save(follow);
+            Optional<SchoolEntity> schoolOptional = Optional.ofNullable(schoolRepository.findByName(schoolName));
+            if (schoolOptional.isPresent()) {
+                SchoolEntity school = schoolOptional.get();
+                followService.addFollow(user, school);
+            }
         }
     }
 

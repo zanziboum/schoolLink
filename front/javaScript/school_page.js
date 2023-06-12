@@ -87,3 +87,26 @@ document.addEventListener("DOMContentLoaded", async function () {
         })
         .finally(() => {});
 });
+followButton.addEventListener("click", function () {
+    const schoolName = schoolCard.querySelector("#name").textContent;
+    if (followButton.innerText === "Follow") {
+        // ...
+    } else if (followButton.innerText === "Unfollow") {
+        // Update the payload object with the schoolName property
+        const unfollowedSchool = { schoolName: schoolName };
+
+        axios
+            .post("http://localhost:8080/api/follow/delete", unfollowedSchool, {
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            })
+            .then((response) => {
+                console.log("School removed from followed schools:", response.data);
+                // Additional actions if needed
+            })
+            .catch((error) => {
+                console.log("Error removing school from followed schools:", error);
+            });
+    }
+});

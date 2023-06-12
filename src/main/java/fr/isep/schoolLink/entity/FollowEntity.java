@@ -19,5 +19,4 @@ public class FollowEntity {
     @ManyToOne
     @JoinColumn(name = "school_id")
     private SchoolEntity school;
-
 }
