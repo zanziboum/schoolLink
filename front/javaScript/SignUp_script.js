@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
         var password = document.getElementById("password").value;
         var address = document.getElementById("address").value;
         var firstNameDiv = document.getElementById("first-name-div");
-        var schoolSwitch = document.getElementById("school-profile-switch").value
+        var schoolSwitch = document.getElementById("school-profile-switch").checked();
 
         // Vérifier si des champs sont manquants
 
         if (schoolSwitch == true){
-            [firstNameDiv].style.visibility='hidden'
+            firstNameDiv.style.visibility='hidden'
             if (!lastName || !email || !password || !address) {
                 alert("Veuillez remplir tous les champs du formulaire.");
                 return; // Arrêter l'exécution du code si des champs sont manquants
