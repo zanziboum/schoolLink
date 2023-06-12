@@ -5,9 +5,15 @@ import net.minidev.json.JSONObject;
 import net.minidev.json.parser.JSONParser;
 
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+
 
 public class ReadJsonFile {
+    static String filepath = "C:\\Users\\jbouv\\OneDrive\\Desktop\\Ecole\\ISEP\\Cycle_ingenieur\\A2\\Web Technologies\\Project\\src\\main\\java\\fr\\isep\\schoolLink\\data\\universities.json";
+    static int numberOfSchools = 57;
     public static JSONArray readJSONFile(String filePath) {
         JSONParser parser = new JSONParser();
 
@@ -26,16 +32,52 @@ public class ReadJsonFile {
 
         return null;
     }
-
-    public static String getUniversityName(JSONObject university) {
-        return (String) university.get("name");
+    public static List<String> getUniversityNames(JSONArray universities) {
+        List<String> result = new ArrayList<>(numberOfSchools);
+        for (int i=0;i<numberOfSchools;i++) {
+            JSONObject university = (JSONObject) universities.get(i);
+            String name = (String) university.get("name");
+            result.add(name);
+        }
+        eraseDuplicates(result);
+        System.out.println(result);
+        return result;
     }
 
-    public static String getUniversitySpecialtyDomain(JSONObject university) {
-        return (String) university.get("specialty_domain");
+
+    public static List<String> getUniversityCountries(JSONArray universities) {
+        List<String> result = new ArrayList<>(numberOfSchools);
+        for (int i=0;i<numberOfSchools;i++){
+            JSONObject university = (JSONObject) universities.get(i);
+            String country = (String) university.get("country");
+            result.add(country);
+        }
+        eraseDuplicates(result);
+        System.out.println(result);
+        return result;
     }
 
-    public static String getUniversityCountry(JSONObject university) {
-        return (String) university.get("country");
+    public static List<String> eraseDuplicates(List<String> list){
+        Set<String> set = new LinkedHashSet<>(list);
+        List<String> result = new ArrayList<>(set);
+        return result;
+   }
+
+    public static List<String> getUniversitySpecialtyDomain(JSONArray universities) {
+        List<String> result = new ArrayList<>(numberOfSchools);
+        for (int i=0;i<numberOfSchools;i++){
+            JSONObject university = (JSONObject) universities.get(i);
+            String specialtyDomain = (String) university.get("specialty_domain");
+            result.add(specialtyDomain);
+        }
+        eraseDuplicates(result);
+        System.out.println(result);
+        return result;
     }
+
+    public static void main(String[] args) {
+        getUniversitySpecialtyDomain(readJSONFile(filepath));
+    }
+
+
 }
