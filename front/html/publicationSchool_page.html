@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../css/newsletterSchool_page.cssSchool_page.css">
+    <link rel="stylesheet" href="../css/publicationSchool_page.css">
     <link rel="stylesheet" href="../css/navBar.css">
     <link rel="stylesheet" href="../css/styleGuide.css">
 
@@ -17,6 +17,7 @@
     <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../javaScript/homePage.js"></script>
+    <script src="../javaScript/publicationSchool_page.js"></script>
 </head>
 <body>
 
@@ -31,15 +32,47 @@
         <img class="exterior" src="../img/icons8-accueil.svg" alt="Exterior" />
         <div class="place valign-text-middle bellefair-normal-black-20px">Profil</div>
     </div>
-    <div class="onPage yellow-color-hover mx-4" onclick="window.location.href='newsletterSchool_page.html';">
+    <div class="onPage yellow-color-hover mx-4" onclick="window.location.href='publicationSchool_page.html';">
         <img class="graduation-cap" src="../img/icons8-chapeau-de-diplôme-100.png" alt="Graduation Cap" />
-        <div class="school valign-text-middle bellefair-normal-black-20px">Newsletter</div>
+        <div class="school valign-text-middle bellefair-normal-black-20px">Publication</div>
     </div>
     <div class="link yellow-color-hover mx-4" onclick="window.location.href='eventSchool_page.html';">
         <img class="event-accepted-tentatively" src="../img/icons8-aujourd'hui-100.png" alt="Event Accepted Tentatively" />
         <div class="event valign-text-middle bellefair-normal-black-20px">Event</div>
     </div>
 </nav>
+
+<div class="profile">
+    <div class="container">
+        <button class="edit-button" type="button" onclick="document.getElementById('popupEvent').style.display = 'flex'">Ajouter une nouvelle publication</button>
+    </div>
+</div>
+<div id="popupEvent">
+    <form class="profile-form align-items-start" id="form-profile" onsubmit="event.preventDefault(); addPublication();">
+
+        <h2>Ajouter une publication</h2>
+        <div>
+            <label for="first-name-input" class="left-label">Titre de la publication:</label>
+            <input type="text" class="form-control" id="first-name-input" placeholder="Entrez le titre de votre publication">
+            <label for="photo" class="left-label">Sélectionnez une photo :</label>
+            <input type="file" id="photo" name="photo" class="form-control">
+        </div>
+
+        <div>
+            <h3>Contenu de la publication:</h3>
+            <div class="bordered-section">
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <button type="submit" id="edit-button" class="edit-button float-lg-right">Publier</button>
+            <button type="button" id="close-button" class="edit-button float-lg-left" onclick="closePopup()">Fermer</button>
+
+        </div>
+    </form>
+</div>
+
+<script>
+
+</script>
 
 </body>
 </html>

@@ -30,9 +30,9 @@
         <img class="exterior" src="../img/icons8-accueil.svg" alt="Exterior" />
         <div class="place valign-text-middle bellefair-normal-black-20px">Profil</div>
     </div>
-    <div class="link yellow-color-hover mx-4" onclick="window.location.href='newsletterSchool_page.html';">
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='publicationSchool_page.html';">
         <img class="graduation-cap" src="../img/icons8-chapeau-de-diplôme-100.png" alt="Graduation Cap" />
-        <div class="school valign-text-middle bellefair-normal-black-20px">Newsletter</div>
+        <div class="school valign-text-middle bellefair-normal-black-20px">Publication</div>
     </div>
     <div class="link yellow-color-hover mx-4" onclick="window.location.href='eventSchool_page.html';">
         <img class="event-accepted-tentatively" src="../img/icons8-aujourd'hui-100.png" alt="Event Accepted Tentatively" />
@@ -113,10 +113,16 @@
                 </label><br>
             </div>
             <button type="submit" id="edit-button" class="edit-button float-lg-right">Enregistrer</button>
+            <button type="button" id="close-button" class="edit-button float-lg-left" onclick="closePopup()">Fermer</button>
         </div>
     </form>
 </div>
 
+<script>
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
 
 
 
