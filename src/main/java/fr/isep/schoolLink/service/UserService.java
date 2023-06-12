@@ -21,13 +21,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public UserEntity createUser(String email, String password){
-        UserEntity user = new UserEntity();
-        user.setEmail(email);
-        user.setPassword(password);
-        user.setRole("USER");
-        return user;
-    }
     public UserEntity createUser(String firstName, String lastName, String email, String password, String address){
         UserEntity user = new UserEntity();
         user.setFirstName(firstName);
