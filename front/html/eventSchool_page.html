@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/eventSchool_page.css">
+    <link rel="stylesheet" href="../css/navBar.css">
+    <link rel="stylesheet" href="../css/styleGuide.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javaScript/homePage.js"></script>
+</head>
+<body>
+
+<nav class="navbar justify-content-center">
+
+    <img class="logo" src="../img/Logo SchoolLink.png"/>
+    <div class="barre-de-recherche mx-4">
+        <img class="search" src="../img/icons8-chercher.svg ">
+        <input class="recherche" placeholder="Search">
+    </div>
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='profilSchool_page.html';">
+        <img class="exterior" src="../img/icons8-accueil.svg" alt="Exterior" />
+        <div class="place valign-text-middle bellefair-normal-black-20px">Profil</div>
+    </div>
+    <div class="link yellow-color-hover mx-4" onclick="window.location.href='newsletterSchool_page.html';">
+        <img class="graduation-cap" src="../img/icons8-chapeau-de-diplôme-100.png" alt="Graduation Cap" />
+        <div class="school valign-text-middle bellefair-normal-black-20px">Newsletter</div>
+    </div>
+    <div class="onPage yellow-color-hover mx-4" onclick="window.location.href='eventSchool_page.html';">
+        <img class="event-accepted-tentatively" src="../img/icons8-aujourd'hui-100.png" alt="Event Accepted Tentatively" />
+        <div class="event valign-text-middle bellefair-normal-black-20px">Event</div>
+    </div>
+</nav>
+<div class="profile">
+    <div class="container">
+        <button class="edit-button" type="button" onclick="document.getElementById('popupEvent').style.display = 'flex'">Ajouter un nouvel evenement</button>
+    </div>
+</div>
+<div id="popupEvent">
+    <form class="profile-form align-items-start" id="form-profile">
+
+        <h2>Ajouter un evenement</h2>
+        <div>
+            <label for="first-name-input" class="left-label">Nom de l'evenement:</label>
+            <input type="text" class="form-control" id="first-name-input" placeholder="Entrez le nom de votre evenement">
+            <label for="address-input" class="left-label">Adresse :</label>
+            <input type="text" class="form-control" id="address-input" placeholder="Entrez l'addresse de l'evenement">
+            <label for="photo" class="left-label">Sélectionnez une photo :</label>
+            <input type="file" id="photo" name="photo" class="form-control">
+        </div>
+
+        <div>
+            <h3>Description de l'evenement :</h3>
+            <div class="bordered-section">
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <button type="submit" id="edit-button" class="edit-button float-lg-right">Publier</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
