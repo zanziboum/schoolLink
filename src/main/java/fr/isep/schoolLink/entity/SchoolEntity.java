@@ -1,5 +1,6 @@
 package fr.isep.schoolLink.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,6 +18,7 @@ public class SchoolEntity {
     private String name;
     private String address;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "school")
     private List<SchoolFormationEntity> formations;
 

@@ -1,5 +1,6 @@
 package fr.isep.schoolLink.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,6 +11,7 @@ public class UserInterestEntity {
     @GeneratedValue
     Long id;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     private UserEntity user;
 

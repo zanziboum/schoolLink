@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-
 @Entity
 @Data
 public class SubjectOfInterestEntity {
@@ -13,9 +12,6 @@ public class SubjectOfInterestEntity {
     @GeneratedValue
     private Long id;
     private String name;
-
-
-
 
 
 }

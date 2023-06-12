@@ -30,6 +30,8 @@ public class AuthController {
 
     @PostMapping("register")
     public String register(@RequestBody @Validated SignUpRequest credentials){
+        System.out.println("password:");
+        System.out.println(credentials.getPassword());
         userService.AddUser(
                 userService.createUser(credentials.getFirstName(),
                         credentials.getLastName(),

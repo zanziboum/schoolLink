@@ -16,6 +16,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
         .then(response => {
             user = response.data
+
+            const matieres = document.querySelectorAll('input[name="matieres"]');
+            user.interests.forEach(interest =>{
+                for(let i = 0; i < matieres.length; i++) {
+                    if(matieres[i].value === interest.subjectOfInterest.name) {
+                        matieres[i].checked = true;
+                    }
+                }
+            })
             document.getElementById("profilePic").setAttribute("src",user.imageLink)
             document.getElementById("name").textContent = user.firstName + " " + user.lastName
             document.getElementById("address").textContent =user.address
@@ -26,14 +35,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         .catch(error => {console.log(error)});
 
     document.getElementById("form-profile").addEventListener("submit", async (event)=>{
-        event.preventDefault();
+
         var matieresCoches = document.querySelectorAll('input[name="matieres"]:checked');
         var matieresSelectionnees = [];
 
         for (var i = 0; i < matieresCoches.length; i++) {
             matieresSelectionnees.push(matieresCoches[i].value);
         }
-        console.log(matieresSelectionnees)
 
         var firstName = document.getElementById("first-name-input").value;
         var lastName = document.getElementById("last-name-input").value;
@@ -60,4 +68,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 popup.style.display = "none";
             });
     });
+
+    document.getElementById("close-button").addEventListener("click", function() {
+        document.getElementById("popup").style.display = "none";
+    });
+
+
 });
+

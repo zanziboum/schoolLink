@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
             address: address
         };
 
+        console.log(user)
+
         // Effectuer une requête POST pour enregistrer l'utilisateur
         fetch("http://localhost:8080/api/auth/register", {
             method: "POST",
