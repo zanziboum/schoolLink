@@ -1,11 +1,18 @@
 package fr.isep.schoolLink.controller;
 
 
+import fr.isep.schoolLink.model.LoginRequest;
+import fr.isep.schoolLink.model.LoginResponse;
+import fr.isep.schoolLink.model.SignUpRequest;
 import fr.isep.schoolLink.repository.SchoolRepository;
+import fr.isep.schoolLink.service.AuthService;
+import fr.isep.schoolLink.service.SchoolService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,9 +20,34 @@ import org.springframework.web.bind.annotation.RestController;
 public class SchoolController {
 
     final private SchoolRepository schoolRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final SchoolService schoolService;
+    private final AuthService authService;
 
-    @PostMapping ("/add")
-    public boolean addSchool(){
-        return true;
+    @PostMapping ("/register/school_profile")
+    public String addSchool(SignUpRequest credentials){
+        System.out.println("password:");
+        System.out.println(credentials.getPassword());
+        schoolService.AddSchool(
+                schoolService.createSchool(credentials.getFirstName(),
+                        credentials.getLastName(),
+                        credentials.getEmail(),
+                        passwordEncoder.encode(credentials.getPassword()),
+                        credentials.getAddress()));
+        return "user added";
+    }
+    @PostMapping("login")
+    public LoginResponse login(@RequestBody @Validated LoginRequest request){
+        return authService.attemptLogin(request.getEmail(),request.getPassword());
+    }
+    @GetMapping("/checkEmail")
+    public ResponseEntity<String> checkEmail(@RequestParam String email) {
+        if (schoolService.existsByEmail(email)) {
+            // L'e-mail existe déjà dans la base de données
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Une adresse e-mail similaire existe déjà.");
+        } else {
+            // L'e-mail n'existe pas dans la base de données
+            return ResponseEntity.ok("Adresse e-mail disponible.");
+        }
     }
 }

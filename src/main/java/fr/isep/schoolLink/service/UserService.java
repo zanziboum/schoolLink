@@ -42,8 +42,4 @@ public class UserService {
         Optional<UserEntity> user = userRepository.findByEmail(email);
         return !user.isPresent();
     }
-
-
-
-
 }

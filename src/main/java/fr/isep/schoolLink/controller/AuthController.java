@@ -41,6 +41,8 @@ public class AuthController {
         return "user added";
     }
 
+
+
     @GetMapping("checkToken")
     public boolean isTokenValid(@AuthenticationPrincipal UserPrincipal principal){
         return principal != null;

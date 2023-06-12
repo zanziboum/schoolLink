@@ -17,6 +17,9 @@ public class SchoolEntity {
     private Long id;
     private String name;
     private String address;
+    private String email;
+    private String password;
+    private String role;
 
     @JsonIgnore
     @OneToMany(mappedBy = "school")
