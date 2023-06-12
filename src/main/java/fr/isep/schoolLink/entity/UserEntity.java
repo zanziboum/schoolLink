@@ -25,4 +25,7 @@ public class UserEntity {
     @OneToMany(mappedBy = "user")
     private List<UserInterestEntity> interests;
 
+    @OneToMany(mappedBy = "user")
+    private List<FollowEntity> followedSchools;
+
 }

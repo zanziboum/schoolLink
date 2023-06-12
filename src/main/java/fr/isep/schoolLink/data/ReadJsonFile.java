@@ -18,18 +18,14 @@ public class ReadJsonFile {
         JSONParser parser = new JSONParser();
 
         try {
-            // Read the JSON file
             Object obj = parser.parse(new FileReader(filePath));
 
-            // Convert the object to a JSON object
             JSONObject jsonObject = (JSONObject) obj;
 
-            // Get the universities array
             return (JSONArray) jsonObject.get("universities");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
     public static List<String> getUniversityNames(JSONArray universities) {
@@ -39,12 +35,10 @@ public class ReadJsonFile {
             String name = (String) university.get("name");
             result.add(name);
         }
-        eraseDuplicates(result);
+        result = eraseDuplicates(result);
         System.out.println(result);
         return result;
     }
-
-
     public static List<String> getUniversityCountries(JSONArray universities) {
         List<String> result = new ArrayList<>(numberOfSchools);
         for (int i=0;i<numberOfSchools;i++){
@@ -52,17 +46,13 @@ public class ReadJsonFile {
             String country = (String) university.get("country");
             result.add(country);
         }
-        eraseDuplicates(result);
+        result = eraseDuplicates(result);
         System.out.println(result);
         return result;
     }
-
     public static List<String> eraseDuplicates(List<String> list){
-        Set<String> set = new LinkedHashSet<>(list);
-        List<String> result = new ArrayList<>(set);
-        return result;
+        return list.stream().distinct().toList();
    }
-
     public static List<String> getUniversitySpecialtyDomain(JSONArray universities) {
         List<String> result = new ArrayList<>(numberOfSchools);
         for (int i=0;i<numberOfSchools;i++){
@@ -70,14 +60,8 @@ public class ReadJsonFile {
             String specialtyDomain = (String) university.get("specialty_domain");
             result.add(specialtyDomain);
         }
-        eraseDuplicates(result);
+        result = eraseDuplicates(result);
         System.out.println(result);
         return result;
     }
-
-    public static void main(String[] args) {
-        getUniversitySpecialtyDomain(readJSONFile(filepath));
-    }
-
-
 }

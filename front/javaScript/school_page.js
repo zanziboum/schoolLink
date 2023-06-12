@@ -46,13 +46,54 @@ document.addEventListener("DOMContentLoaded", async function () {
                 schoolCardsContainer.appendChild(schoolCard);
 
 
-            });
 
+                const followButton = schoolCard.querySelector(".follow-button");
+                followButton.addEventListener("click", function () {
+                    if (followButton.innerText === "Follow") {
+                        followButton.innerText = "Unfollow";
+
+                        const followedSchool = { name: schoolName };
+
+                        axios
+                            .post("http://localhost:8080/api/follow/add", followedSchool, {
+                                headers: {
+                                    Authorization: "Bearer " + token,
+                                },
+                            })
+                            .then((response) => {
+                                console.log("School added to followed schools:", response.data);
+                                // Additional actions if needed
+                            })
+                            .catch((error) => {
+                                console.log("Error adding school to followed schools:", error);
+                            });
+                    } else if (followButton.innerText === "Unfollow") {
+                        followButton.innerText = "Follow";
+
+                        const unfollowedSchool = { name: schoolName };
+                        axios
+                            .delete("http://localhost:8080/api/follow/delete", {
+                                headers: {
+                                    Authorization: "Bearer " + token,
+                                },
+                                data: unfollowedSchool,
+                            })
+                            .then((response) => {
+                                console.log("School removed from followed schools:", response.data);
+                                // Additional actions if needed
+                            })
+                            .catch((error) => {
+                                console.log("Error removing school from followed schools:", error);
+                            });
+                    }
+                });
+            });
         })
-        .catch(error => {
+        .catch((error) => {
             console.log(error);
         })
         .finally(() => {
 
         });
+
 })

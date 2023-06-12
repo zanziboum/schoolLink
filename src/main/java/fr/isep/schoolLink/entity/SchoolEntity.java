@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
+
 import java.util.List;
 
 @Data
@@ -27,8 +28,9 @@ public class SchoolEntity {
     private String bannerUrl;
 
 
-    @OneToMany(mappedBy = "school")
-    private List<SchoolFormationEntity> formations;
+        @OneToMany(mappedBy = "school")
+        private List<SchoolFormationEntity> formations;
 
-
-}
+        @OneToMany(mappedBy = "school")
+        private List<FollowEntity> followedSchools;
+    }
