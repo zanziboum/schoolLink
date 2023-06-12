@@ -20,7 +20,7 @@ public class SchoolService {
         schoolRepository.save(school);
     }
 
-    public SchoolEntity createSchool(String name, String email, String password, String address, String role){
+    public SchoolEntity createSchool(String name, String email, String password, String address){
         SchoolEntity school = new SchoolEntity();
         school.setName(name);
         school.setEmail(email);

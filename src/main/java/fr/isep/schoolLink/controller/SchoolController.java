@@ -3,8 +3,7 @@ package fr.isep.schoolLink.controller;
 
 import fr.isep.schoolLink.model.LoginRequest;
 import fr.isep.schoolLink.model.LoginResponse;
-import fr.isep.schoolLink.model.SignUpRequest;
-import fr.isep.schoolLink.repository.SchoolRepository;
+import fr.isep.schoolLink.model.SignUpRequestSchoolProfile;
 import fr.isep.schoolLink.service.AuthService;
 import fr.isep.schoolLink.service.SchoolService;
 import lombok.RequiredArgsConstructor;
@@ -19,18 +18,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/school")
 public class SchoolController {
 
-    final private SchoolRepository schoolRepository;
     private final PasswordEncoder passwordEncoder;
     private final SchoolService schoolService;
     private final AuthService authService;
 
     @PostMapping ("/register/school_profile")
-    public String addSchool(SignUpRequest credentials){
+    public String addSchool(SignUpRequestSchoolProfile credentials){
         System.out.println("password:");
         System.out.println(credentials.getPassword());
         schoolService.AddSchool(
-                schoolService.createSchool(credentials.getFirstName(),
-                        credentials.getLastName(),
+                schoolService.createSchool(credentials.getName(),
                         credentials.getEmail(),
                         passwordEncoder.encode(credentials.getPassword()),
                         credentials.getAddress()));
