@@ -90,7 +90,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 followButton.addEventListener("click", function () {
     const schoolName = schoolCard.querySelector("#name").textContent;
     if (followButton.innerText === "Follow") {
-        // ...
+        const followedSchool = { schoolName: schoolName }; // Modify payload
+
+        axios
+            .post("http://localhost:8080/api/follow/add", followedSchool, {
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            })
+            .then((response) => {
+                console.log("School added to followed schools:", response.data);
+                // Additional actions if needed
+            })
+            .catch((error) => {
+                console.log("Error adding school to followed schools:", error);
+            });
     } else if (followButton.innerText === "Unfollow") {
         // Update the payload object with the schoolName property
         const unfollowedSchool = { schoolName: schoolName };
