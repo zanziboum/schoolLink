@@ -7,9 +7,9 @@ const app = express();
 // Appliquer le middleware CORS à toutes les routes
 app.use(cors());
 
-// Définir la route pour la page d'accueil
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'loginPage.html'));
+    res.sendFile(path.join(__dirname, 'html/signIn_page.html'));
 });
 
 // Autres routes et configurations

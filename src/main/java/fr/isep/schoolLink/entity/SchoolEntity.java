@@ -18,10 +18,15 @@ public class SchoolEntity {
     private String name;
     private String address;
     private String email;
+    @JsonIgnore
     private String password;
     private String role;
 
-    @JsonIgnore
+    private String info;
+    private String imageUrl;
+    private String bannerUrl;
+
+
     @OneToMany(mappedBy = "school")
     private List<SchoolFormationEntity> formations;
 

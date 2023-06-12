@@ -1,7 +1,11 @@
 package fr.isep.schoolLink.service;
 
 import fr.isep.schoolLink.entity.SchoolEntity;
+import fr.isep.schoolLink.entity.SchoolFormationEntity;
+import fr.isep.schoolLink.entity.SubjectOfInterestEntity;
+import fr.isep.schoolLink.repository.SchoolFormationRepository;
 import fr.isep.schoolLink.repository.SchoolRepository;
+import fr.isep.schoolLink.repository.SubjectOfInterestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +15,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SchoolService {
     private final SchoolRepository schoolRepository;
+    private final SchoolFormationRepository schoolFormationEntity;
+    private final SubjectOfInterestRepository subjectOfInterestRepository;
 
     public Optional<SchoolEntity> findByEmail(String email){
         return schoolRepository.findByEmail(email);
@@ -31,6 +37,11 @@ public class SchoolService {
     }
     public boolean existsByEmail(String email) {
         Optional<SchoolEntity> school = schoolRepository.findByEmail(email);
-        return !school.isPresent();
+        return school.isEmpty();
     }
+
+    public void testadd(){
+
+    }
+
 }
