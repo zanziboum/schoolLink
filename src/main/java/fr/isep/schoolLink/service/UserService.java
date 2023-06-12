@@ -3,7 +3,6 @@ package fr.isep.schoolLink.service;
 import fr.isep.schoolLink.entity.UserEntity;
 import fr.isep.schoolLink.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,5 +28,22 @@ public class UserService {
         user.setRole("USER");
         return user;
     }
+    public UserEntity createUser(String firstName, String lastName, String email, String password, String address){
+        UserEntity user = new UserEntity();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setAddress(address);
+        user.setRole("USER");
+        return user;
+    }
+    public boolean existsByEmail(String email) {
+        Optional<UserEntity> user = userRepository.findByEmail(email);
+        return !user.isPresent();
+    }
+
+
+
 
 }

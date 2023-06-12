@@ -1,12 +1,14 @@
 package fr.isep.schoolLink.controller;
 
-import fr.isep.schoolLink.entity.UserEntity;
 import fr.isep.schoolLink.model.LoginRequest;
 import fr.isep.schoolLink.model.LoginResponse;
+import fr.isep.schoolLink.model.SignUpRequest;
 import fr.isep.schoolLink.security.UserPrincipal;
 import fr.isep.schoolLink.service.AuthService;
 import fr.isep.schoolLink.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
@@ -27,14 +29,13 @@ public class AuthController {
     }
 
     @PostMapping("register")
-    public String register(@RequestBody @Validated UserEntity credentials){
-        UserEntity user = new UserEntity();
-        user.setEmail(credentials.getEmail());
-        user.setPassword( passwordEncoder.encode(credentials.getPassword()));
-
+    public String register(@RequestBody @Validated SignUpRequest credentials){
         userService.AddUser(
-                userService.createUser(credentials.getEmail(), passwordEncoder.encode(credentials.getPassword()))
-        );
+                userService.createUser(credentials.getFirstName(),
+                        credentials.getLastName(),
+                        credentials.getEmail(),
+                        passwordEncoder.encode(credentials.getPassword()),
+                        credentials.getAddress()));
         return "user added";
     }
 
@@ -42,6 +43,19 @@ public class AuthController {
     public boolean isTokenValid(@AuthenticationPrincipal UserPrincipal principal){
         return principal != null;
     }
+
+    @GetMapping("/checkEmail")
+    public ResponseEntity<String> checkEmail(@RequestParam String email) {
+        if (userService.existsByEmail(email)) {
+            // L'e-mail existe déjà dans la base de données
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Une adresse e-mail similaire existe déjà.");
+        } else {
+            // L'e-mail n'existe pas dans la base de données
+            return ResponseEntity.ok("Adresse e-mail disponible.");
+        }
+    }
+
+
 }
 
 
