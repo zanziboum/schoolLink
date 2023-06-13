@@ -23,7 +23,6 @@ public class SearchController {
     final UserRepository userRepository;
     final UserInterestRepository userInterestRepository;
 
-
     final SearchService searchService;
 
     @PostMapping("domain")

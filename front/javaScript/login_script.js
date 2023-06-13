@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const login = document.getElementById("emailInput").value;
         const password = document.getElementById("passwordInput").value;
 
+
+
         try {
             const response = await axios.post("http://localhost:8080/api/auth/login", {
                 email: login,
