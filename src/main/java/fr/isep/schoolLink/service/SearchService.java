@@ -35,7 +35,8 @@ public class SearchService {
             .forEach(interest ->{
             schoolFormationRepository.findBySubjectOfInterest(interest)
                 .forEach(formation->{
-                school.add(formation.getSchool());
+                    SchoolEntity newSchool = formation.getSchool();
+                    if (! school.contains(newSchool)) school.add(newSchool);
             });
         });
 
