@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             const schoolCardsContainer = document.getElementById("schoolCardsContainer");
 
-            response.data.forEach(school => {
+            response.data.forEach((school, index) => {
 
                 const schoolCard = document.createElement("div");
                 schoolCard.classList.add("profil-ecole");
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                             </div>
                         </div>
                         <div class="frame-49">
-                            <div class="follow valign-text-middle inter-normal-black-12px">Follow</div>
+                            <div class="follow valign-text-middle inter-normal-black-12px" id="followButton${index}">Follow</div>
                         </div>
                     </div>
                 </div>
@@ -45,17 +45,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                 schoolCard.innerHTML = cardContent;
                 schoolCardsContainer.appendChild(schoolCard);
 
-
-
-                const followButton = schoolCard.querySelector(".follow-button");
+                const followButton = document.getElementById(`followButton${index}`);
                 followButton.addEventListener("click", function () {
                     if (followButton.innerText === "Follow") {
                         followButton.innerText = "Unfollow";
-
-                        const followedSchool = { name: schoolName };
-
+                        const followedSchool = school.name ;
+                        console.log("hola")
                         axios
-                            .post("http://localhost:8080/api/follow/add", followedSchool, {
+                            .post("http://localhost:8080/api/follow/add", {}, {
+                                params: {
+                                    schoolName: followedSchool
+                                },
                                 headers: {
                                     Authorization: "Bearer " + token,
                                 },
@@ -70,13 +70,15 @@ document.addEventListener("DOMContentLoaded", async function () {
                     } else if (followButton.innerText === "Unfollow") {
                         followButton.innerText = "Follow";
 
-                        const unfollowedSchool = { name: schoolName };
+                        const followedSchool = school.name ;
                         axios
-                            .delete("http://localhost:8080/api/follow/delete", {
+                            .post("http://localhost:8080/api/follow/delete",{}, {
+                                params: {
+                                    schoolName: followedSchool
+                                },
                                 headers: {
                                     Authorization: "Bearer " + token,
-                                },
-                                data: unfollowedSchool,
+                                }
                             })
                             .then((response) => {
                                 console.log("School removed from followed schools:", response.data);
@@ -87,6 +89,28 @@ document.addEventListener("DOMContentLoaded", async function () {
                             });
                     }
                 });
+
+                axios
+                    .get("http://localhost:8080/api/follow/isFollowed", {
+                        params: {
+                            schoolName: school.name
+                        },
+                        headers: {
+                            Authorization: "Bearer " + token
+                        }
+                    })
+                    .then((response) => {
+                        // Mettez à jour le texte du bouton en fonction de la réponse
+                        if (response.data === true) {
+                            followButton.innerText = "Unfollow";
+                        } else {
+                            followButton.innerText = "Follow";
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("Error checking if user is following school:", error);
+                    });
+
             });
         })
         .catch((error) => {

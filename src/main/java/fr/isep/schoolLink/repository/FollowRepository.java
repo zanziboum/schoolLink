@@ -1,8 +1,10 @@
 package fr.isep.schoolLink.repository;
 
-import fr.isep.schoolLink.entity.FollowEntity;
+import fr.isep.schoolLink.entity.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FollowRepository extends JpaRepository<FollowEntity,Long> {
+import java.util.Optional;
 
+public interface FollowRepository extends JpaRepository<FollowEntity,Long> {
+    Optional<FollowEntity> findByUserAndSchool(UserEntity user, SchoolEntity school);
 }

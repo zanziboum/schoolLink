@@ -33,6 +33,6 @@ public class UserService {
     }
     public boolean existsByEmail(String email) {
         Optional<UserEntity> user = userRepository.findByEmail(email);
-        return !user.isPresent();
+        return user.isEmpty();
     }
 }
