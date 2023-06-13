@@ -56,6 +56,9 @@
   </div>
   <div>
     <button class="edit-button float-lg-right" type="button" onclick="document.getElementById('popup').style.display = 'flex'">Modifier le profil</button>
+    <button class="edit-button float-lg-left" type="submit" id="logoutButton">Se déconnecter</button>
+
+
   </div>
 </div>
 
@@ -128,4 +131,18 @@
     </form>
 </div>
 </body>
+
+<script>
+    // Fonction de déconnexion
+    function logout() {
+        // Supprimer le token
+        localStorage.removeItem('token');
+
+        // Redirection vers la page signIn_page.html
+        window.location.href = 'signIn_page.html';
+    }
+
+    // Ajouter un écouteur d'événement au bouton de déconnexion
+    document.getElementById('logoutButton').addEventListener('click', logout);
+</script>
 </html>

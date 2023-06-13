@@ -32,7 +32,7 @@ public class SchoolService {
         school.setEmail(email);
         school.setPassword(password);
         school.setAddress(address);
-        school.setRole("USER");
+        school.setRole("SCHOOL");
         return school;
     }
     public boolean existsByEmail(String email) {

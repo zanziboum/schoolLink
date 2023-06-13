@@ -22,8 +22,8 @@ public class SchoolController {
     private final SchoolService schoolService;
     private final AuthService authService;
 
-    @PostMapping ("/register/school_profile")
-    public String addSchool(SignUpRequestSchoolProfile credentials){
+    @PostMapping ("/register")
+    public String addSchool(@RequestBody @Validated SignUpRequestSchoolProfile credentials){
         System.out.println("password:");
         System.out.println(credentials.getPassword());
         schoolService.AddSchool(
@@ -31,7 +31,7 @@ public class SchoolController {
                         credentials.getEmail(),
                         passwordEncoder.encode(credentials.getPassword()),
                         credentials.getAddress()));
-        return "user added";
+        return "school added";
     }
     @PostMapping("login")
     public LoginResponse login(@RequestBody @Validated LoginRequest request){

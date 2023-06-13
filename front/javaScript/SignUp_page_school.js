@@ -1,43 +1,36 @@
-function toggleForm() {
-    var schoolProfileForm = document.getElementById("schoolProfileForm");
-    schoolProfileForm.style.display = document.getElementById("schoolProfileCheckbox").checked ? "block" : "none";
-}
-
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("SignUpForm").addEventListener("submit", function(event) {
+    document.getElementById("SignUpFormSchool").addEventListener("submit", function(event) {
         event.preventDefault();
 
         // Récupérer les valeurs du formulaire
-        var firstName = document.getElementById("firstName").value;
-        var lastName = document.getElementById("lastName").value;
+        var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
         var address = document.getElementById("address").value;
 
         // Vérifier si des champs sont manquants
-        if (!firstName || !lastName || !email || !password || !address) {
+        if (!name || !email || !password || !address) {
             alert("Veuillez remplir tous les champs du formulaire.");
             return; // Arrêter l'exécution du code si des champs sont manquants
         }
 
         // Créer un objet contenant les données de l'utilisateur
-        var user = {
-            firstName: firstName,
-            lastName: lastName,
+        var school = {
+            name: name,
             email: email,
             password: password,
             address: address
         };
 
-        console.log(user)
+        console.log(school)
 
-        // Effectuer une requête POST pour enregistrer l'utilisateur
-        fetch("http://localhost:8080/api/auth/register", {
+        // Effectuer une requête POST pour enregistrer l'ecole
+        fetch("http://localhost:8080/api/school/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(school)
         })
             .then(function(response) {
                 if (response.ok) {
