@@ -8,7 +8,7 @@
 <body>
 <h1>Page de Connexion</h1>
 
-<form id="loginForm">
+<form id="SignUpForm">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
 
@@ -20,7 +20,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#loginForm').submit(function(e) {
+        $('#SignUpForm').submit(function(e) {
             e.preventDefault(); // Empêche le rechargement de la page
 
             // Récupérer les valeurs des champs
